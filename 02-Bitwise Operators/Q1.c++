@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+// Q1: Find if a number is power of 2 using loop
+string check_power_loop(int n) {
+  int original = n;
+
+  for (int i = 0; n > 1; i++) {
+  // check if n is divisible by 2
+    if (n % 2 == 0) {
+      n = n / 2;
+    } else {
+      break;
+    }
+  }
+  // return results
+  if (n == 1) {
+    return "Yes, " + to_string(original) + " is power of 2;";
+  }
+  return "No, " + to_string(original) + " is not power of 2";
+}
+
+// Q2: Find if a number is power of 2 without using loop
+// string check_power(int n) {
+
+// }
+// Q3: Reverse an integer n.
+int reverse_int(int n, int size) {
+  int rev = 0;
+  int p10 = 1;
+  for (int i = 0; i < size; i++) {
+    int remainder = n % 10;
+    rev = (rev * 10) + remainder;
+    n = n / 10;
+    p10 = p10 * 10;
+  }
+  return rev;
+}
+int main() {
+  cout << check_power_loop(32) << endl;
+  // cout << check_power(32) << endl;
+  cout << reverse_int(125, 3); // 1 * 10^2 + 2 * 10^1 + 5 * 10^0
+  return 0;
+}
