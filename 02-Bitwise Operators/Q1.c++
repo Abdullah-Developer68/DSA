@@ -21,12 +21,15 @@ string check_power_loop(int n) {
 
 // Q2: Find if a number is power of 2 without using loop
 string check_power(int n) {
+  if (n <= 0) {
+    return "No," + to_string(n) + "the number is not power of 2.";
+  }
   int total_ones = __builtin_popcount(n);
 
   if (total_ones != 1) {
     return "No," + to_string(n) + "the number is not power of 2.";
   }
-  int total_zeros = __builtin_clz(n);
+  int total_zeros = __builtin_ctz(n);
 
   int b = total_zeros;
 
