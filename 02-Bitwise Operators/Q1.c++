@@ -5,7 +5,7 @@ string check_power_loop(int n) {
   int original = n;
 
   for (int i = 0; n > 1; i++) {
-  // check if n is divisible by 2
+    // check if n is divisible by 2
     if (n % 2 == 0) {
       n = n / 2;
     } else {
@@ -20,9 +20,26 @@ string check_power_loop(int n) {
 }
 
 // Q2: Find if a number is power of 2 without using loop
-// string check_power(int n) {
+string check_power(int n) {
+  int total_ones = __builtin_popcount(n);
 
-// }
+  if (total_ones != 1) {
+    return "No," + to_string(n) + "the number is not power of 2.";
+  }
+  int total_zeros = __builtin_clz(n);
+
+  int b = total_zeros;
+
+  // Using Right Shift operator the result is a >> b -> a / 2 ^ b.
+  // if n = 4 (100) then b = 1 and n >> 2 = 1 (1)
+  int result = n >> b;
+
+  if (result != 1) {
+    return "No," + to_string(n) + "the number is not power of 2.";
+  }
+  return "Yes," + to_string(n) + "the number is power of 2.";
+}
+
 // Q3: Reverse an integer n.
 int reverse_int(int n, int size) {
   int rev = 0;
@@ -37,7 +54,8 @@ int reverse_int(int n, int size) {
 }
 int main() {
   cout << check_power_loop(32) << endl;
-  // cout << check_power(32) << endl;
+  cout << check_power(64) << endl;
+  cout << check_power_loop(63) << endl;
   cout << reverse_int(125, 3); // 1 * 10^2 + 2 * 10^1 + 5 * 10^0
   return 0;
 }
