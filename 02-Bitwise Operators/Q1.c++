@@ -57,6 +57,7 @@ int reverse_int(int n, int size) {
 }
 // Q4: Find if a number is power of 2 without using loop or built-ins
 string check_power_no_built(int n) {
+    // when - 1 is done then from the first 1 till the end all bits are flip. 0 -> 1 and 1 -> 0
   if (n > 0 && (n & (n - 1)) == 0) {
     return "Yes, " + to_string(n) + " is power of 2.";
   }
