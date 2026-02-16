@@ -84,7 +84,7 @@ void print_unquie_values(int arr[], int size) {
   }
 }
 
-// Q4: print intersection of 2 arrays.
+// Q4: print intersection return common elements of 2 arrays.
 int main() {
   int arr[] = {1, 2, 3, 4, 4, 2, 5};
   int size = sizeof(arr) / sizeof(arr[0]);
