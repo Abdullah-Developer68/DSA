@@ -85,15 +85,39 @@ void print_unquie_values(int arr[], int size) {
 }
 
 // Q4: print intersection return common elements of 2 arrays.
-vector<int> intersection(int arr[], int arr1[], int size, int size2) {
-  return {0};
+void intersection(int arr[], int arr1[], int size, int size1) {
+  int common_values[100] = {};
+  int com_pos = 0;
+  int curr_val;
+  bool exists = false;
+
+  for (int i = 0; i < size; i++) {
+    curr_val = arr[i];
+    for (int j = 0; j < size1; j++) {
+      if (curr_val == arr1[j]) {
+        // check if the value has already been shifted to common
+        for (int i = 0; i < com_pos; i++) {
+          if (curr_val == common_values[i]) {
+            exists = true;
+            break; // break to avoid duplicates in common values
+          }
+        }
+        if (!exists) {
+          common_values[com_pos] = curr_val;
+          com_pos++;
+        }
+      }
+    }
+  }
+  cout << "Intersection results" << endl;
+  print_arr(common_values, com_pos);
 }
 
 int main() {
 
   // arrays
   int arr[] = {1, 2, 3, 4, 4, 2, 5};
-  int arr1[] = {10, 8, 3, 4, 4, 2, 5};
+  int arr1[] = {10, 8, 3, 4, 4, 2, 90, 100, 11, 32};
   // sizes
   int size = sizeof(arr) / sizeof(arr[0]);
   int size1 = sizeof(arr1) / sizeof(arr1[0]);
@@ -114,9 +138,7 @@ int main() {
   cout << endl;
 
   // intersection
-  cout << "Intersection: " << endl;
-  vector<int> inter_result = intersection(arr, arr1, size, size1);
-  print_arr(inter_result.data(), inter_result.size());
+  intersection(arr, arr1, size, size1);
 
   return 0;
 }
