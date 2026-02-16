@@ -85,9 +85,18 @@ void print_unquie_values(int arr[], int size) {
 }
 
 // Q4: print intersection return common elements of 2 arrays.
+vector<int> intersection(int arr[], int arr1[], int size, int size2) {
+  return {0};
+}
+
 int main() {
+
+  // arrays
   int arr[] = {1, 2, 3, 4, 4, 2, 5};
+  int arr1[] = {10, 8, 3, 4, 4, 2, 5};
+  // sizes
   int size = sizeof(arr) / sizeof(arr[0]);
+  int size1 = sizeof(arr1) / sizeof(arr1[0]);
 
   // sum and product
   vector<int> result = sum_product(arr, size);
@@ -103,6 +112,11 @@ int main() {
   cout << "After Min & Max Swap: " << endl;
   print_arr(arr, size);
   cout << endl;
+
+  // intersection
+  cout << "Intersection: " << endl;
+  vector<int> inter_result = intersection(arr, arr1, size, size1);
+  print_arr(inter_result.data(), inter_result.size());
 
   return 0;
 }
