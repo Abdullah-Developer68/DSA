@@ -2,6 +2,15 @@
 #include <vector>
 using namespace std;
 
+// --- Common methods for vectors
+
+// size: returns the number of elements currently stored in the vector
+// push_back: appends an element to the end of the vector, increasing its size
+// pop_back: removes the last element from the vector, decreasing its size
+// front: returns a reference to the first element in the vector (meaning the vector does not gets removed)
+// back: returns a reference to the last element in the vector
+// at: returns a reference to the element at a given index with bounds checking
+
 int main()
 {
     vector<int> vec; // 0
